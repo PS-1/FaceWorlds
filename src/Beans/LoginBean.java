@@ -40,7 +40,7 @@ public class LoginBean implements Serializable {
 	// Beispiel ueberlegen, was man mit diesem Event machen koennte
 	public void changedUser(ValueChangeEvent event) {
 		System.out.println("Der Username hat sich in der Eingabe von " + event.getOldValue() + " zu "
-				+ event.getNewValue() + " geändert.");
+				+ event.getNewValue() + " geaendert.");
 
 	}
 
