@@ -16,4 +16,4 @@ Our first web app based on the JavaServerFaces-framework.
 * continue in eclipse
 * Servers -> No Servers are available. Click this link to create a new server ...
 * Tomcat v8.5 Server 
-* Tomcat installation directory has to be the uziped tomcat folder
+* Tomcat installation directory has to be the unziped tomcat folder

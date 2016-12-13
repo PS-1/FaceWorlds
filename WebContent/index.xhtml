@@ -1,81 +1,49 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 
-<ui:composition template="/WEB-INF/templates/BasicTemplate.xhtml"
-	xmlns="http://www.w3.org/1999/xhtml"
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0
+Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-
+transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+<title>Index</title>
+</head>
 
-	<ui:define name="title">Index</ui:define>
-	<ui:define name="content">
-		<!-- Content Header (Page header) -->
-		<div class="content-header">
-			<h1>
-				Page Header <small>Optional description</small>
-			</h1>
-		</div>
-		<!-- Main content -->
-		<div class="content">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="box">
-						<div class="box-header with-border">
-							<h3>Herzlich willkommen!</h3>
-						</div>
-						<div class="box-body">
-							<h:form>
-								<h:panelGroup rendered="#{!loginBean.studentBean.angemeldet}">
-									<!-- nicht angemeldet -->
-									<h:outputText
-										value="Sie sind noch nicht angemeldet. Bitte anmelden." />
-									<br />
-									<br />
-									<h:commandLink value="Login" action="/login.xhtml"
-										class="btn btn-default btn-flat" />
-								</h:panelGroup>
-								<h:panelGroup rendered="#{loginBean.studentBean.angemeldet}">
-									<!-- angemeldet -->
-									<h:outputText
-										value="Sie sind als #{loginBean.studentBean.username} angemeldet." />
-									<br />
-									<h:outputText
-										value="Gender: #{loginBean.studentBean.geschlecht}" />
-									<br />
-									<br />
-									<h:commandLink value="Benutzer wechseln"
-										action="#{loginBean.changeUser}"
-										class="btn btn-default btn-flat" />
-								</h:panelGroup>
-							</h:form>
-						</div>
-					</div>
-				</div>
-				<!-- /.col-md-12 -->			
-			</div>
-			<h:panelGroup rendered="#{loginBean.studentBean.admin}">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="box">
-							<div class="box-header with-border">
-								<h3>Hier sehen Sie alle Benutzernamen und die
-									dazugehörenden Passwörter:</h3>
-							</div>
-							<div class="box-body">
+<h:body>
+	<h:form>
+		<h:panelGroup rendered="#{!loginBean.studentBean.angemeldet}">
+			<!-- nicht angemeldet -->
+			<h:outputText value="Sie sind noch nicht angemeldet. Bitte anmelden." />
+			<br />
+			<br />
+			<h:commandLink value="Login" action="/login.xhtml"
+				class="btn btn-default btn-flat" />
+		</h:panelGroup>
+		<h:panelGroup rendered="#{loginBean.studentBean.angemeldet}">
+			<!-- angemeldet -->
+			<h:outputText
+				value="Sie sind als #{loginBean.studentBean.username} angemeldet." />
+			<br />
+			<h:outputText value="Gender: #{loginBean.studentBean.geschlecht}" />
+			<br />
+			<br />
+			<h:commandLink value="Benutzer wechseln"
+				action="#{loginBean.changeUser}" class="btn btn-default btn-flat" />
+		</h:panelGroup>
+	</h:form>
 
-								<h:dataTable value="#{loginBean.liste}" var="student"
-									styleClass="table table-striped">
-									<h:column>
-										<f:facet name="header">Username</f:facet>#{student.username}</h:column>
-									<h:column>
-										<f:facet name="header">Password</f:facet>#{student.password} </h:column>
-								</h:dataTable>
+	<h:panelGroup rendered="#{loginBean.studentBean.admin}">
+		<h3>Hier sehen Sie alle Benutzernamen und die dazugehörenden
+			Passwörter:</h3>
+		<h:dataTable value="#{loginBean.liste}" var="student"
+			styleClass="table table-striped">
+			<h:column>
+				<f:facet name="header">Username</f:facet>#{student.username}</h:column>
+			<h:column>
+				<f:facet name="header">Password</f:facet>#{student.password} </h:column>
+		</h:dataTable>
+	</h:panelGroup>
 
-							</div>
-						</div>
-					</div>
-				</div>
-			</h:panelGroup>
-		</div>
-		<!-- /.content -->
-	</ui:define>
-</ui:composition>
+</h:body>
+</html>
