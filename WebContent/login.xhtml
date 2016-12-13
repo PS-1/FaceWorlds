@@ -18,6 +18,7 @@ transitional.dtd">
 			valueChangeListener="#{loginBean.changedUser}">
 			<!-- Pass-Through-Attribute ersetzen HTML5 Tags -->
 			<!-- <input class="form-control" placeholder="Username"> -->
+			<f:passThroughAttribute name="placeholder" value="Username" />
 		</h:inputText>
 		<!-- hier wird die Fehlermedlung zurückgegeben -->
 		<h:message for="username" />
@@ -25,7 +26,7 @@ transitional.dtd">
 		<!-- TODO hier weiter machen -->
 		<h:inputSecret id="password" value="#{loginBean.studentBean.password}">
 			<!-- <input type="password" class="form-control" placeholder="Password" /> -->
-
+			<f:passThroughAttribute name="placeholder" value="Password" />
 		</h:inputSecret>
 		<!-- hier wird die Fehlermedlung zurückgegeben -->
 		<h:message for="password" />
