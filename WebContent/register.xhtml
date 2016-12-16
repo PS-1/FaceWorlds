@@ -12,67 +12,80 @@ transitional.dtd">
 <h:body>
 	<h:form>
 		<h:commandLink action="index">
-			<b>Face</b>Worlds
+			<h2>
+				<b>Face</b>Worlds
+			</h2>
 		</h:commandLink>
 	</h:form>
 	<p>Register a new membership</p>
-	
+
 	<h:form>
-		<h:inputText id="username" value="#{loginBean.studentBean.username}"
-			valueChangeListener="#{loginBean.changedUser}">
-			<!-- Pass-Through-Attribute ersetzen HTML5 Tags -->
-			<f:passThroughAttribute name="placeholder" value="Full name" />
-		</h:inputText>
-		<!-- hier wird die Fehlermedlung zurückgegeben -->
-		<h:message for="username" />
+		<table>
+			<tr>
+				<td><h:inputText id="username"
+						value="#{loginBean.studentBean.username}"
+						valueChangeListener="#{loginBean.changedUser}">
+						<!-- Pass-Through-Attribute ersetzen HTML5 Tags -->
+						<f:passThroughAttribute name="placeholder" value="Full name" />
+					</h:inputText></td>
+				<td>
+					<!-- hier wird die Fehlermedlung zurückgegeben --> <h:message
+						for="username" />
+				</td>
+			</tr>
+			<tr>
+				<td><h:inputText id="age" value="#{loginBean.studentBean.age}">
+						<f:passThroughAttribute name="placeholder" value="Age" />
+					</h:inputText></td>
+				<td><h:message for="age" /></td>
+			</tr>
+			<tr>
+				<td><h:selectOneRadio id="geschlecht"
+						value="#{loginBean.studentBean.geschlecht}">
+						<!-- layout="lineDirection" -->
+						<f:selectItem itemLabel="weiblich" itemValue="weiblich" />
+						<f:selectItem itemLabel="männlich" itemValue="männlich" />
+					</h:selectOneRadio></td>
+				<td><h:message for="geschlecht" /></td>
+			</tr>
+			<tr>
+				<td><h:inputSecret id="password"
+						value="#{loginBean.studentBean.password}"
+						binding="#{passwordComponent}">
+						<f:passThroughAttribute name="placeholder" value="Password" />
+					</h:inputSecret></td>
+				<td><h:message for="password" /></td>
+			</tr>
+			<tr>
+				<td><h:inputSecret id="password2"
+						value="#{loginBean.studentBean.password}"
+						validatorMessage="Passwords are not equal">
+						<!-- Passwoerter vergleichen -->
+						<f:validator validatorId="equalsValidator" />
+						<f:attribute name="pw2" value="#{passwordComponent.value}" />
+						<f:passThroughAttribute name="placeholder" value="Retype password" />
+					</h:inputSecret></td>
+				<td><h:message for="password2" /></td>
+			</tr>
+			<tr>
+				<td><h:selectBooleanCheckbox id="agb"
+						value="#{loginBean.studentBean.agb}" /> <!--  <input type="checkbox" />  -->
+					<h:outputLabel for="agb">AGB akzeptieren</h:outputLabel></td>
+				<td><h:message for="agb" /></td>
+			</tr>
+		</table>
 		<br />
 
-		<h:inputText id="age" value="#{loginBean.studentBean.age}">
-			<f:passThroughAttribute name="placeholder" value="Age" />
-		</h:inputText>
-		<h:message for="age" />
-		<br />
-
-		<h:selectOneRadio id="geschlecht"
-			value="#{loginBean.studentBean.geschlecht}"  ><!-- layout="lineDirection" -->
-			<f:selectItem itemLabel="weiblich" itemValue="weiblich" />
-			<f:selectItem itemLabel="männlich" itemValue="männlich" />
-		</h:selectOneRadio>
-		<h:message for="geschlecht" />
-		
-		<h:inputSecret id="password" value="#{loginBean.studentBean.password}"
-			binding="#{passwordComponent}">
-			<f:passThroughAttribute name="placeholder" value="Password" />
-		</h:inputSecret>
-		<h:message for="password" />
-		<br />
-
-		<h:inputSecret id="password2"
-			value="#{loginBean.studentBean.password}"
-			validatorMessage="Passwords are not equal">
-			<!-- Passwoerter vergleichen -->
-			<f:validator validatorId="equalsValidator" />
-			<f:attribute name="pw2" value="#{passwordComponent.value}" />
-			<f:passThroughAttribute name="placeholder" value="Retype password" />
-		</h:inputSecret>
-		<h:message for="password2" />
-		<br />
-
-		 <h:selectBooleanCheckbox id="agb"
-				value="#{loginBean.studentBean.agb}" /> <!--  <input type="checkbox" />  -->
-			<h:outputLabel for="agb">AGB akzeptieren</h:outputLabel>
-		<h:message for="agb" />
-		<br /><br />
 		<h:commandButton id="button" value="Register"
 			binding="#{loginBean.button}" action="#{loginBean.register}" />
-
-
+		<h:message for="button" />
 	</h:form>
+	
 	<br />
 	<h:form>
 		<h:commandLink value="I already have a membership" action="login" />
 	</h:form>
-	
-	<h:message for="button"  />
+
+
 </h:body>
 </html>

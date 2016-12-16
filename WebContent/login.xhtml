@@ -14,27 +14,40 @@ transitional.dtd">
 	<h2>FaceWorlds</h2>
 	<p>Sign in to start your session</p>
 	<h:form>
-		<h:inputText id="username" value="#{loginBean.studentBean.username}"
-			valueChangeListener="#{loginBean.changedUser}">
-			<!-- Pass-Through-Attribute ersetzen HTML5 Tags -->
-			<!-- <input class="form-control" placeholder="Username"> -->
-			<f:passThroughAttribute name="placeholder" value="Username" />
-		</h:inputText>
-		<!-- hier wird die Fehlermedlung zurückgegeben -->
-		<h:message for="username" />
-
-		<!-- TODO hier weiter machen -->
-		<h:inputSecret id="password" value="#{loginBean.studentBean.password}">
-			<!-- <input type="password" class="form-control" placeholder="Password" /> -->
-			<f:passThroughAttribute name="placeholder" value="Password" />
-		</h:inputSecret>
-		<!-- hier wird die Fehlermedlung zurückgegeben -->
-		<h:message for="password" />
-
-		<h:commandButton id="button" value="Sign In"
-			binding="#{loginBean.button}" action="#{loginBean.login}" />
-		<h:message for="button" />
+		<table>
+			<tr>
+				<td><h:inputText id="username"
+						value="#{loginBean.studentBean.username}"
+						valueChangeListener="#{loginBean.changedUser}">
+						<!-- Pass-Through-Attribute ersetzen HTML5 Tags -->
+						<!-- <input class="form-control" placeholder="Username"> -->
+						<f:passThroughAttribute name="placeholder" value="Username" />
+					</h:inputText></td>
+				<td>
+					<!-- hier wird die Fehlermedlung zurückgegeben --> <h:message
+						for="username" />
+				</td>
+			</tr>
+			<tr>
+				<!-- TODO hier weiter machen -->
+				<td><h:inputSecret id="password"
+						value="#{loginBean.studentBean.password}">
+						<!-- <input type="password" class="form-control" placeholder="Password" /> -->
+						<f:passThroughAttribute name="placeholder" value="Password" />
+					</h:inputSecret></td>
+				<td>
+					<!-- hier wird die Fehlermedlung zurückgegeben --> <h:message
+						for="password" />
+				</td>
+			</tr>
+			<tr>
+				<td><h:commandButton id="button" value="Sign In"
+						binding="#{loginBean.button}" action="#{loginBean.login}" /></td>
+				<td><h:message for="button" /></td>
+			</tr>
+		</table>
 	</h:form>
+	<br />
 	<h:form>
 		<h:commandLink value="Register a new membership" action="register" />
 	</h:form>
